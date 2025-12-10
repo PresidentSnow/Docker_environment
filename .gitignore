@@ -1,0 +1,8 @@
+# Local variables
+**/.env
+**/.env.*
+!**/.env.example
+
+Wordpress_docker/wp-content/themes/*
+
+*.log

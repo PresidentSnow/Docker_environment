@@ -6,10 +6,10 @@ services:
     container_name: wp_db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: m1s3.Ql
-      MYSQL_DATABASE: wordpress_db
-      MYSQL_USER: wp_mysql
-      MYSQL_PASSWORD: w0.r3Us
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PW}
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PW}
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -21,16 +21,15 @@ services:
       dockerfile: Dockerfile
       labels:
         - "description=WordPress for tests."
-    image: my-wordpress-local:v1
     container_name: wp_app
     restart: unless-stopped
     ports:
-      - "9000:80"
+      - "${WD_PORT}:80"
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wp_mysql
-      WORDPRESS_DB_PASSWORD: w0.r3Us
-      WORDPRESS_DB_NAME: wordpress_db
+      WD_DB_HOST: ${WD_DB_HOST}
+      WD_DB_USER: ${WD_DB_USER}
+      WD_DB_PW: ${WD_DB_PW}
+      WD_DB_NAME: ${WD_DB_NAME}
     volumes:
       - ./wp-content:/var/www/html/wp-content
       - ./wp-config:/var/www/html/wp-config

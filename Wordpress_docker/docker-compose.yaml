@@ -19,6 +19,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        WP_UID: ${WP_UID:-1002}
+        WP_GID: ${WP_GID:-1002}
+        WP_USER: ${WP_USER:-wordpress-app}
       labels:
         - "description=WordPress for tests."
     container_name: wp_app
@@ -36,7 +40,6 @@ services:
       - ./wp-content/plugins:/var/www/html/wp-content/plugins:rw
       - ./wp-content/uploads:/var/www/html/wp-content/uploads:rw
       - ./wp-content/languages:/var/www/html/wp-content/languages:rw
-    user: "1001:1001"
     depends_on:
       - db
     networks:

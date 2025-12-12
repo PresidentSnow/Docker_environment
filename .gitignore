@@ -2,19 +2,15 @@
 **/.env
 **/.env.*
 !**/.env.example
+!**/*.gitkeep
 
-# Waste folders
+# Junke folders
 Wordpress_docker/wp-content/themes/*
 Wordpress_docker/wp-content/languages/*
 Wordpress_docker/wp-content/plugins/*
 Wordpress_docker/wp-content/upgrade/*
 Wordpress_docker/wp-content/uploads/*
-
-# Add .gitkeep file
-!Wordpress_docker/wp-content/themes/*.gitkeep
-!Wordpress_docker/wp-content/languages/*.gitkeep
-!Wordpress_docker/wp-content/plugins/*.gitkeep
-!Wordpress_docker/wp-content/upgrade/*.gitkeep
-!Wordpress_docker/wp-content/uploads/*.gitkeep
+Wordpress_docker/wp-content/backups/*
+Wordpress_docker/wp-content/cache/*
 
 *.log

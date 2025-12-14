@@ -1,7 +1,19 @@
 # Docker_environment
 Repo for manage the Docker images, containers and his environment.
 
-* Container for Wordpress.
+* Tips for docker containers:
+    - To create a non user without privileges, for specific service or docker container. You can run this command for create new user:
+
+        sudo adduser --system --uid 115 \
+            --no-create-home \
+            --group \
+            --home /var/empty \
+            --shell /usr/sbin/nologin \
+            wp_user
+        
+        This is just an example; the '115' (UID) can be whatever you want, BUT it's important that it's in the range of 100-999 and not already use by another service or user in your system. On the other hand, the 'wp_user' (username) follows the same rule; it can be whatever you want, but it mustn't already be used by others in your system.
+
+* Container for Wordpress:
     - If there's problem with this:
     
         'The theme directory "twentytwentyfive" does not exist.
